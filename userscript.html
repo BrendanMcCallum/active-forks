@@ -1,70 +1,49 @@
 <!DOCTYPE html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <title>Active GitHub Forks</title>
-    <link rel="shortcut icon" href="icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
-    <style>
-      html,
-      body,
-      .col-sm-12.col-lg-12,
-      .row,
-      .container,
-      .mt-4.mb-2{
-        background-color:Transparent !important;
-      }
-      //Dark Mode
-      
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Active GitHub Forks</title>
+  <link rel="shortcut icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"/>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"/>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"/>
+  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"/>
 </head>
-
-<body style="border-collapse:collapse;border-spacing:0;padding:0;margin:0;background-origin:border-box!important;left:0;right:0;top:0;bottom:0;">
-  <div class="mt-4 mb-2">
-  <div class="container">
-  <div class="row">
-  <div class="col-sm-12 col-lg-12">
+<body style="background-color: #000 !important;">
   <div class="card">
     <div class="card-header text-center">
-        <h3>
-            <a href="https://github.com/techgaun/active-forks" class="text-dark">
-                <i class="fa fa-github-alt pull-left" aria-hidden="true"></i>
-            </a>
-            Active GitHub Forks
-        </h3>
+      <h3>
+        <a href="https://github.com/techgaun/active-forks" class="text-dark">
+          <i class="fa fa-github-alt pull-left" aria-hidden="true"/>
+        </a>
+        Active GitHub Forks
+        <button type="button" class="btn-close activeForksClose" aria-label="Close"></button>
+      </h3>
     </div>
-
     <div class="card-body">
-        <div class="form-group">
-          <form id="form" role="form">
-              <div class="input-group">
-                  <input id="q" name="q" class="form-control" type="text" placeholder="techgaun/github-dorks">
-                  <span class="input-group-btn">
-                      <button id="find" onClick="fetchData()" type="button" class="btn btn-primary">
-                          <i id="spinner" class="fa fa-spinner fa-pulse fa-fw" hidden></i> Find
-                      </button>
-                  </span>
-              </div>
+      <div class="form-group">
+        <form id="form" role="form">
+          <div class="input-group">
+            <input id="q" name="q" class="form-control" type="text" placeholder="techgaun/github-dorks"/>
+              <span class="input-group-btn">
+                <button id="find" onClick="fetchData()" type="button" class="btn btn-primary">
+                  <i id="spinner" class="fa fa-spinner fa-pulse fa-fw" hidden/>
+                  Find
+                </button>
+              </span>
+            </div>
           </form>
         </div>
-
-        <div id="data-body"></div>
-        <table id="forkTable" class="display table-sm table-striped" width="100%"></table>
-    </div>
-    <div id="footer" class="card-footer text-muted"></div>
+        <div id="data-body"/>
+        <table id="forkTable" class="display table-sm table-striped" width="100%"/>
+      </div>
+      <div id="footer" class="card-footer text-muted"/>
   </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <script type="text/javascript" src="js/userscript.js"></script>
+  <script type="text/javascript" src="js/userscript.js"/>
 </body>
