@@ -1,0 +1,46 @@
+html,
+body,
+.col-sm-12.col-lg-12,
+.row,
+.container,
+.mt-4.mb-2 {
+  background-color:Transparent !important;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+body {
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  background-origin: border-box !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.card-header,
+.card-footer {
+  background-color: #F6F8FA;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.activeForksClose {
+  padding: 0;
+  border-style: none;
+  outline: none;
+  box-shadow: none; 
+}

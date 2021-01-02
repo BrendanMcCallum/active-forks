@@ -7,43 +7,48 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/userscript.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/plugin/relativeTime.js"></script>
 </head>
 <body>
-  <div class="card">
-    <div class="card-header text-center">
-      <h3>
-        <a href="https://github.com/techgaun/active-forks" class="text-dark">
-          <i class="fa fa-github-alt pull-left" aria-hidden="true"></i>
-        </a>
-        Active GitHub Forks
-        <button type="button" class="btn-close activeForksClose pull-right" aria-label="Close"></button>
-      </h3>
-    </div>
-    <div class="card-body">
-      <div class="form-group">
-        <form id="form" role="form">
-          <div class="input-group">
-            <input id="q" name="q" class="form-control" type="text" placeholder="techgaun/github-dorks"/>
-              <span class="input-group-btn">
-                <button id="find" onClick="fetchData()" type="button" class="btn btn-primary">
-                  <i id="spinner" class="fa fa-spinner fa-pulse fa-fw" hidden></i>
-                  Find
-                </button>
-              </span>
-            </div>
-          </form>
-        </div>
-        <div id="data-body"/>
-        <table id="forkTable" class="display table-sm table-striped" width="100%"/>
+  <div>
+    <div class="card">
+      <div class="card-header text-center">
+        <h3>
+          <a href="https://github.com/techgaun/active-forks" class="text-dark">
+            <i class="fa fa-github-alt pull-left" aria-hidden="true"></i>
+          </a>
+          Active GitHub Forks
+          <button type="button" id="activeForksClose" class="btn-close pull-right" aria-label="Close"></button>
+        </h3>
       </div>
-      <div id="footer" class="card-footer text-muted"/>
+      <div class="card-body">
+        <div class="form-group">
+          <form id="form" role="form">
+            <div class="input-group">
+              <input id="q" name="q" class="form-control" type="text" placeholder="techgaun/github-dorks"></input>
+                <span class="input-group-btn">
+                  <button id="find" onClick="fetchData()" type="button" class="btn btn-primary">
+                    <i id="spinner" class="fa fa-spinner fa-pulse fa-fw" hidden></i>
+                    Find
+                  </button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div id="data-body"></div>
+          <table id="forkTable" class="display table table-sm table-striped" width="100%"></table>
+        </div>
+        <div id="footer" class="card-footer text-muted"></div>
+    </div>
   </div>
   <script type="text/javascript" src="js/userscript.js"></script>
 </body>

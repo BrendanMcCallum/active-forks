@@ -1,6 +1,11 @@
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+dayjs.extend(window.dayjs_plugin_relativeTime);
+
 window.addEventListener('load', () => {
   initDT(); // Initialize the DatatTable and window.columnNames variables
-
+  
+  clickListener();
+  
   const repo = getRepoFromUrl();
 
   if (repo) {
@@ -32,6 +37,20 @@ function fetchData() {
       'danger'
     );
   }
+}
+
+function clickListener() {
+  document.addEventListener('click', function (event) {
+  // If the clicked element doesn't have the right selector, bail
+  //if (!event.target.matches('.click-me')) return;
+  // Don't follow the link
+  if (document.getElementById('activeForksClose')) {
+    event.preventDefault();
+  }
+  // Log the clicked element in the console
+  console.log(event.target);
+
+  }, false); 
 }
 
 function updateDT(data) {
@@ -76,7 +95,7 @@ function initDT() {
     .indexOf(sortColName);
 
   // Use first index for readable column name
-  // we use moment's fromNow() if we are rendering for `pushed_at`; better solution welcome
+  // we use dayjs's fromNow() if we are rendering for `pushed_at`; better solution welcome
   window.forkTable = $('#forkTable').DataTable({
     columns: window.columnNamesMap.map(colNM => {
       return {
@@ -85,7 +104,7 @@ function initDT() {
           colNM[1] === 'pushed_at'
             ? (data, type, _row) => {
                 if (type === 'display') {
-                  return moment(data).fromNow();
+                  return dayjs(data).fromNow();
                 }
                 return data;
               }
@@ -133,10 +152,8 @@ function showMsg(msg, type) {
 
   document.getElementById('data-body').innerHTML = `
         <div class="alert ${alert_type} alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            ${msg}
+          ${msg}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     `;
 }
