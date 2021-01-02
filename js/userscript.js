@@ -55,7 +55,13 @@ function clickListener() {
 
 function updateDT(data) {
   // Remove any alerts, if any:
-  if ($('.alert')) $('.alert').remove();
+  //if ($('.alert')) $('.alert').remove();
+  if (document.querySelector('.alert')) {
+    var alertList = document.querySelectorAll('.alert')
+    alertList.forEach(function (alert) {
+      bootstrap.Alert.getInstance(alert).close();
+    })
+  }
 
   // Format dataset and redraw DataTable. Use second index for key name
   const forks = [];
