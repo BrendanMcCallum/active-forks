@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.5.4",
+    "bootstrap": "^5.0.0-beta1",
+    "sass": "^1.32.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "css": "yarn css-all",
+    "css-all": "yarn css-page; yarn css-userscript",
+    "css-userscript": "sass scss/userscript-same-window.scss css/userscript-same-window.css",
+    "css-page": "sass scss/page.scss css/page.css"
+  }
+}
