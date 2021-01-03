@@ -1,3 +1,19 @@
+@keyframes flame {
+  0% {
+    fill: #FFDC01;
+  }
+  40% {
+    fill: #FDAC01;
+  }
+  100% {
+    fill: #F73B01;
+  }
+}
+svg #flame {
+  -webkit-animation: flame 1.5s ease-in alternate infinite;
+  animation: flame 1.5s ease-in alternate infinite;
+}
+
 .bootstrap {
   /* Required */
   /* Optional */
