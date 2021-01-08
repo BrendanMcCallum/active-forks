@@ -47,7 +47,11 @@ function updateDT(data) {
   const forks = [];
   for (let fork of data) {
     fork.repoLink = `<a href="https://github.com/${fork.full_name}">Link</a>`;
-    fork.ownerName = fork.owner.login;
+    if (fork.owner) {
+      fork.ownerName = fork.owner.login;
+    } else {
+      fork.ownerName = fork.full_name.match('^(.*)\/.*')[1];
+    }
     forks.push(fork);
   }
   const dataSet = forks.map(fork =>
